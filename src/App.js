@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import RadioButtonList from "./components/RadioButtonList";
+import Feature from "./components/Feature";
+import Question from "./components/Question";
 
 function App() {
+  let options = ['24"', '24" ADA Compliant', '18" ADA Compliant'];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="question-wrapper">
+        <Question />
+      </div>
+      <div className="radio-wrapper">
+        <RadioButtonList options={options} />
+      </div>
+      <div className="feature-wrapper">
+        <Feature />
+      </div>
     </div>
   );
 }
