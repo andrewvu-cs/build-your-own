@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import Logo from "./components/Logo";
 import RadioButtonList from "./components/RadioButtonList";
 import Feature from "./components/Feature";
 import Question from "./components/Question";
@@ -9,14 +10,19 @@ function App() {
 
   return (
     <div className="App">
-      <div className="question-wrapper">
-        <Question />
+      <div className="logo-wrapper">
+        <Logo />
       </div>
-      <div className="radio-wrapper">
-        <RadioButtonList options={options} />
-      </div>
-      <div className="feature-wrapper">
-        <Feature />
+      <div className="content-wrapper">
+        <div className="question-wrapper">
+          <Question />
+        </div>
+        <div className="radio-wrapper">
+          <RadioButtonList options={options} />
+        </div>
+        <div className="feature-wrapper">
+          <Feature />
+        </div>
       </div>
     </div>
   );

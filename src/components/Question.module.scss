@@ -1,7 +1,11 @@
 .wrapper{
-    margin: auto;
-    padding: 8em;
-
+    padding-left: 25%;
+    width: 85%;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
     p{
         border: 1px solid black;
     }
