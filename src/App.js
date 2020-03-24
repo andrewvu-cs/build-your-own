@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Logo from "./components/Logo";
 import RadioButtonList from "./components/RadioButtonList";
 import Feature from "./components/Feature";
 import Question from "./components/Question";
 import features from "./features";
+import Welcome from "./screens/Welcome";
 
 function App() {
   let featureGroups = features;
@@ -32,7 +33,10 @@ function App() {
       <div className="logo-wrapper">
         <Logo />
       </div>
-      <div className="content-wrapper">
+      <div >
+        <Welcome />
+      </div>
+      {/* <div className="content-wrapper">
         <div className="question-wrapper">
           <Question question={featureGroups[0].size.featureQuestion} />
         </div>
@@ -45,7 +49,7 @@ function App() {
         <div className="feature-wrapper">
           <Feature imgUrl={sizeImg} copy={sizeCopy} />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

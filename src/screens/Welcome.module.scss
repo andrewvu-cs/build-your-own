@@ -1,0 +1,39 @@
+.wrapper{
+    width: 90%;
+    height: 80vh;
+    margin: auto;
+    border: 1px solid red;
+    display: flex;
+    .textWrapper
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 50%;
+        height: 100%;
+        border: 1px solid black;
+
+        .textHeader{
+            font-size: 3.2em;
+            font-weight: 400;
+            width: 60%;
+            padding: 0;
+            margin: 0 auto;
+        }
+        hr{
+            width: 60%;
+        }
+        .text{
+            width: 60%;
+            font-size: 2em;
+            font-weight: 300;
+            margin: 0 auto;
+        }
+    }
+
+    .radioWrapper{
+        width: 50%;
+        height: 100%;
+        border: 4px solid yellowgreen;
+    }
+}
