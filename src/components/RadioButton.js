@@ -1,11 +1,11 @@
 import React from 'react'
 import styles from './RadioButton.module.scss'
 
-const RadioButton = ({option}) => {
+const RadioButton = ({option, clicked}) => {
     return (
         <div>
                <input type="radio" id={option}
-                name="size" value={option} className={styles.form_radio}/>
+                name="size" value={option} className={styles.form_radio} onClick={clicked}/>
                 <label>{option}</label>
         </div>
     )
