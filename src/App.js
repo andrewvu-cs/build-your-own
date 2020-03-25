@@ -1,55 +1,38 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { Router } from "@reach/router";
 import "./App.css";
 import Logo from "./components/Logo";
-import RadioButtonList from "./components/RadioButtonList";
-import Feature from "./components/Feature";
-import Question from "./components/Question";
 import features from "./features";
 import Welcome from "./screens/Welcome";
+import Content from "./screens/Content";
 
 function App() {
+
+  // dummy data
   let featureGroups = features;
 
-  const [size, setSize] = useState("");
-  const [sizeImg, setSizeImg] = useState("");
-  const [sizeCopy, setSizeCopy] = useState("");
+  const [mainChoice, setMainChoice] = useState("");
 
-  const onSelectEventHandler = e => {
-    setSize(e.target.value);
+  const onMainChoiceEventHandler = e => {
+    setMainChoice(e.target.value);
   };
-
-  useEffect(() => {
-    if (!!size === true) {
-      let feature = featureGroups[0].size.featureOptions.filter(
-        option => option.feature === size
-      ); 
-      const {featureCopy} = feature[0];
-      setSizeCopy(featureCopy);
-    }
-  }, [size, featureGroups]);
 
   return (
     <div className="App">
       <div className="logo-wrapper">
         <Logo />
       </div>
-      <div >
-        <Welcome />
-      </div>
-      {/* <div className="content-wrapper">
-        <div className="question-wrapper">
-          <Question question={featureGroups[0].size.featureQuestion} />
-        </div>
-        <div className="radio-wrapper">
-          <RadioButtonList
-            options={featureGroups[0].size.featureOptions}
-            clicked={onSelectEventHandler}
+      <Router>
+        <Welcome path="/" clicked={onMainChoiceEventHandler} />
+        {featureGroups.map(group => (
+          <Content
+            key={group.groupID}
+            path={group.path}
+            question={group.featureDetails.featureQuestion}
+            options={group.featureDetails.featureOptions}
           />
-        </div>
-        <div className="feature-wrapper">
-          <Feature imgUrl={sizeImg} copy={sizeCopy} />
-        </div>
-      </div> */}
+        ))}
+      </Router>
     </div>
   );
 }

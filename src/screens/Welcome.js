@@ -3,7 +3,7 @@ import WelcomeButtonList from "../components/WelcomeButtonList";
 
 import styles from "./Welcome.module.scss";
 
-const Welcome = () => {
+const Welcome = ({clicked}) => {
   const options = [
     "Flexibility features",
     "Superior drying",
@@ -25,7 +25,7 @@ const Welcome = () => {
         </p>
       </div>
       <div className={styles.radioWrapper}>
-        <WelcomeButtonList options={options} />
+        <WelcomeButtonList options={options} clicked={clicked}/>
       </div>
     </div>
   );

@@ -11,27 +11,3 @@
   width: 20%;
 }
 
-.content-wrapper{
-  height: 80vh;
-  display: flex;
-  flex-wrap: wrap;
-  /* align-items: center; */
-}
-
-.question-wrapper{
-  width:35%;
-  border: 1px solid black;
-  height: 80%;
-}
-
-.radio-wrapper{
-  width:20%;
-  border: 1px solid red;
-  height: 80%;
-}
-
-.feature-wrapper{
-  width: 45%;
-  border: 1px solid salmon;
-  height: 80%;
-}

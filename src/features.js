@@ -1,6 +1,9 @@
 const featureGroups = [
   {
-    size: {
+    groupID: 1,
+    groupName: "size",
+    path: "/size",
+    featureDetails: {
       featureQuestion:
         "Great! Next, tell us the dishwasher size that suits your needs.",
       featureOptions: [
@@ -26,7 +29,10 @@ const featureGroups = [
     }
   },
   {
-    rack: {
+    groupID: 2,
+    groupName: "rack",
+    path: "/rack",
+    featureDetails: {
       featureQuestion:
         "Most Bosch dishwashers are equipped with a convenient 3rd rack. Let us know which you prefer.",
       featureOptions: [
@@ -57,7 +63,10 @@ const featureGroups = [
     }
   },
   {
-    handle: {
+    groupID: 3,
+    groupName: "Handle",
+    path: "/handle",
+    featureDetails: {
       featureQuestion:
         "Bosch dishwashers come in a range of handle styles to suit the look of your kitchen. Tell us what you're thinking",
       featureOptions: [
@@ -94,7 +103,10 @@ const featureGroups = [
     }
   },
   {
-    light: {
+    groupID: 4,
+    groupName: "Light",
+    path: "/light",
+    featureDetails: {
       featureQuestion:
         "Several of our dishwashers feature convenient indicators that can make your life easier.  Do any of these seem benficial for your lifestyle?",
       featureOptions: [
@@ -114,7 +126,10 @@ const featureGroups = [
     }
   },
   {
-    color: {
+    groupID: 5,
+    groupName: "color",
+    path: "/color",
+    featureDetails: {
       featureQuestion:
         "Next, what color or finish would work best in your kitchen?",
       featureOptions: [
@@ -152,7 +167,10 @@ const featureGroups = [
     }
   },
   {
-    noise: {
+    groupID: 6,
+    groupName: "Noise",
+    path: "/noise",
+    featureDetails: {
       featureQuestion:
         "All Bosch dishwashers are expectionally quiet. Next, let us know if you are bother by ay noise.",
       featureOptions: [
@@ -196,7 +214,10 @@ const featureGroups = [
     }
   },
   {
-    drying: {
+    groupID: 7,
+    groupName: "Handle",
+    path: "/drying",
+    featureDetails: {
       featureQuestion:
         "Bosch dishwashers feature some of the most advanced drying technologies on the market.  Tell us which you prrefer, depending on your needs and preferences",
       featureOptions: [
@@ -222,7 +243,10 @@ const featureGroups = [
     }
   },
   {
-    homeConnect: {
+    groupID: 8,
+    groupName: "HomeConnect",
+    path: "/homeconnect",
+    featureDetails: {
       featureQuestion:
         "And finally, would you like the option to remotely control and monitor your Bosch dishwasher from your smart phone using Home Connect?",
       featureOptions: [
