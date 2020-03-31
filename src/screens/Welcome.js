@@ -5,10 +5,26 @@ import styles from "./Welcome.module.scss";
 
 const Welcome = ({clicked}) => {
   const options = [
-    "Flexibility features",
-    "Superior drying",
-    "Design and style",
-    "Quiet operation"
+    {
+      id: 1,
+      value: "flexibility",
+      name: "Flexibility features",
+    },
+    {
+      id: 2,
+      value: "drying",
+      name: "Superior drying",
+    },
+    {
+      id: 3,
+      value: "design",
+      name: "Design and style",
+    },
+    {
+      id: 4,
+      value: "sound",
+      name: "Quiet operation"
+    }
   ];
   return (
     <div className={styles.wrapper}>

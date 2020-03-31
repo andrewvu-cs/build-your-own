@@ -22,3 +22,13 @@
   border: 1px solid salmon;
   height: 80%;
 }
+
+.buttonWrapper{
+  width: 100%;
+  margin-top: 0.5%;
+  height: 9%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border: 1px solid red; 
+}

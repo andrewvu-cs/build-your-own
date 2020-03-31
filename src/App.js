@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { Router } from "@reach/router";
+import { Router, navigate } from "@reach/router";
 import "./App.css";
 import Logo from "./components/Logo";
 import features from "./features";
 import Welcome from "./screens/Welcome";
 import Content from "./screens/Content";
+import Done from "./screens/Done";
 
 function App() {
-
   // dummy data
   let featureGroups = features;
 
@@ -15,7 +15,13 @@ function App() {
 
   const onMainChoiceEventHandler = e => {
     setMainChoice(e.target.value);
+    console.log(mainChoice);
+    navigate("/size");
   };
+
+  const Root = ({ children }) => {
+    return children;
+  }
 
   return (
     <div className="App">
@@ -23,15 +29,21 @@ function App() {
         <Logo />
       </div>
       <Router>
-        <Welcome path="/" clicked={onMainChoiceEventHandler} />
-        {featureGroups.map(group => (
-          <Content
-            key={group.groupID}
-            path={group.path}
-            question={group.featureDetails.featureQuestion}
-            options={group.featureDetails.featureOptions}
-          />
-        ))}
+        <Root path="/">
+        <Welcome path="/" clicked={onMainChoiceEventHandler}>
+          {featureGroups.map(group => (
+            <Content
+              navigate={navigate}
+              key={group.groupID}
+              path={group.path}
+              nextPath={mainChoice === "flexibility" ? group.flexPath : null}
+              question={group.featureDetails.featureQuestion}
+              options={group.featureDetails.featureOptions}
+            />
+          ))}
+        </Welcome>
+        <Done path="/finished" />
+        </Root>
       </Router>
     </div>
   );

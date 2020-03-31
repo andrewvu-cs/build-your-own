@@ -2,11 +2,11 @@ import React from 'react'
 import styles from './PrimaryButtonList.module.scss';
 import PrimaryButton from './PrimaryButton'
 
-const PrimaryButtonList = () => {
+const PrimaryButtonList = ({clicked, prev}) => {
     return (
         <div className={styles.PrimaryButtonList}>
-            <PrimaryButton>Prev</PrimaryButton>
-            <PrimaryButton>Next</PrimaryButton>
+            <PrimaryButton onClick={prev}>Prev</PrimaryButton>
+            <PrimaryButton clicked={clicked}>Next</PrimaryButton>
         </div>
     )
 }

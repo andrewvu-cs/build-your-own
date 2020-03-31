@@ -6,7 +6,12 @@ const WelcomeButtonList = ({ options, clicked }) => {
   return (
     <div className={styles.wrapper}>
       {options.map(option => (
-        <WelcomeButton id={option.feature} option={option} clicked={clicked}/>
+        <WelcomeButton
+          key={option.id}
+          value={option.value}
+          option={option.name}
+          clicked={clicked}
+        />
       ))}
     </div>
   );

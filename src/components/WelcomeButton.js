@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./WelcomeButton.module.scss";
 
-const WelcomeButton = ({ option, clicked }) => {
+const WelcomeButton = ({ value, option, clicked }) => {
   return (
     <div className={styles.wrapper}>
       <label>
@@ -10,11 +10,10 @@ const WelcomeButton = ({ option, clicked }) => {
           type="radio"
           id={option}
           name="size"
-          value={option}
+          value={value}
           className={styles.form_radio}
           onClick={clicked}
         />
-        
       </label>
     </div>
   );
