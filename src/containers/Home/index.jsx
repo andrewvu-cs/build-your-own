@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory} from "react-router-dom";
 import { useStoreState } from "pullstate";
 import { store } from "../../store";
 import Journey from "./../../components/Journey";
@@ -11,14 +11,11 @@ function Home() {
   const onChoiceHandler = e => {
     const selectedGroup = groups[e.target.value - 1];
     store.update(s => {
-      s.journey = selectedGroup.groupName;
-      s.order = selectedGroup.displayOrder.split(",");
+      s.journeyID = selectedGroup.ID;
+      s.order = selectedGroup.displayOrder;
     });
-    console.log(store);
-    history.push(`/size?groupID=${e.target.value}`);
+    history.push('1');
   };
-
-
 
   return (
     <div>
@@ -28,6 +25,8 @@ function Home() {
         dishwasher for you, first choose which of these for options is most
         important to you.
       </p>
+
+      {/*  4 Main Journeys to choose from:  Flexibility, Design, etc.*/}
       {groups.map(group => (
         <Journey
           key={group.groupID}

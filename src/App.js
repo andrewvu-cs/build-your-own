@@ -1,47 +1,60 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import axios from "axios";
+import { Switch, Route } from "react-router-dom";
+// import axios from "axios";
 import { store } from "./store";
 import { useStoreState } from "pullstate";
 import "./App.css";
 import Home from "./containers/Home";
+import Summary from "./containers/Summary";
 import Feature from "./containers/Feature";
+import json from "./what.json";
 
 function App() {
   //onComponentDidMount Equivalent
   useEffect(() => {
-    axios.get("https://bshpersona.com/personaAPI/data/GetBYOData").then(res => {
-      console.log(res.data.ProductBuilder);
-      const { group, ListValues } = res.data.ProductBuilder;
-      store.update(s => {
-        s.groups = group;
-        s.listValues = ListValues;
-      });
+    // axios.get("https://bshpersona.com/personaAPI/data/GetBYOData").then(res => {
+    //   console.log(res.data.ProductBuilder);
+    //   const { group, ListValues, products } = res.data.ProductBuilder;
+    //   store.update(s => {
+    //     s.groups = group;
+    //     s.listValues = ListValues;
+    //     s.products = products;
+    //   });
+    // });
+    // creating Initial Pullstate
+    const { group, ListValues, products } = json.ProductBuilder;
+    store.update(s => {
+      s.groups = group;
+      s.listValues = ListValues;
+      s.products = products;
     });
   }, []);
 
   const listValues = useStoreState(store, s => s.listValues);
-  // console.log(listValues);
-
+ 
   return (
     <div className="App">
-      <Router>
-        <Switch>
-          {/* Dynamically creating routes */}
-          {listValues.map(listValue => (
-            <Route key={listValue.listItemID} path={`/${listValue.listName}`}>
-              <Feature
-                key={listValue.listItemID}
-                name={listValue.listName}
-                items={listValue.listItems}
-              />
-            </Route>
-          ))}
-          <Route exact path="/">
-            <Home />
+      <Switch>
+        {/* Dynamically creating routes */}
+        {listValues.map(listValue => (
+          <Route key={listValue.listItemID} exact path={`/${listValue.listID}`}>
+            <Feature
+              keyName={listValue.keyName}
+              key={listValue.listItemID}
+              name={listValue.listName}
+              items={listValue.listItems}
+            />
           </Route>
-        </Switch>
-      </Router>
+        ))}
+        {/* Final route */}
+        <Route path="/summary">
+          <Summary />
+        </Route>
+        {/* HOME ROUTE */}
+        <Route exact path="/">
+          <Home />
+        </Route>
+      </Switch>
     </div>
   );
 }
